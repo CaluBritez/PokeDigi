@@ -6,6 +6,8 @@ const PokemonScreen = () => {
     const [pokemonImage, setPokemonImage] = useState(null);
     const [error, setError] = useState('');
 
+    const [digimonNumber, setDigimonNumber] = useState('');
+
     const fetchPokemonImage = () => {
         // Reset previous error
         setError('');
@@ -39,7 +41,9 @@ const PokemonScreen = () => {
             <Text style={styles.text}>Enter Pokemon Number:</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={text => setPokemonNumber(text)}
+                onChangeText={text =>{
+                    setDigimonNumber(text);
+                    setPokemonNumber(text);}}
                 value={pokemonNumber}
                 keyboardType="numeric"
             />
