@@ -7,6 +7,8 @@ const PokemonScreen = () => {
     const [error, setError] = useState('');
 
     const [digimonNumber, setDigimonNumber] = useState('');
+    const [digimonImage, setDigimonImage] = useState(null);
+
 
     const fetchPokemonImage = () => {
         // Reset previous error
@@ -14,9 +16,14 @@ const PokemonScreen = () => {
 
         // Check if the input is empty or not a number
         if (!pokemonNumber || isNaN(pokemonNumber)) {
-            setError('Please enter a valid Pokemon number');
+            setError('Please enter a valid Pokemon/Digimon number');
             return;
         }
+        // Check if the input is empty or not a number
+        if (!digimonNumber || isNaN(digimonNumber)) {
+            setError('Please enter a valid Pokemon/Digimon number');
+            return;
+        }        
 
         // Fetch Pokemon data from PokeAPI
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
